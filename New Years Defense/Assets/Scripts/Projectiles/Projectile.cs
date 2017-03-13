@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-	[SerializeField] private float speed = 10f;
+	protected const float errorRange = .05f;
+	[SerializeField] protected float speed = 10f;
 
-	private int damage;
-	private GameObject target;
+	protected int damage;
+	protected GameObject target;
 	
 	void FixedUpdate () {
 
@@ -20,10 +21,12 @@ public class Projectile : MonoBehaviour {
 			Time.fixedDeltaTime * speed / Vector3.Distance (transform.position, target.transform.position));
 	}
 
-	public void SetDamageAndTarget (int damage, GameObject target) {
+	public virtual void SetDamageAndTarget (int damage, GameObject target) {
 
 		this.damage = damage;
 		this.target = target;
+
+		Debug.Log (damage);
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
