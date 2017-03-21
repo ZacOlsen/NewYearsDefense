@@ -19,7 +19,7 @@ public class DogTower : Tower {
 		for (int i = 0; i < towers.Length; i++) {
 
 			if (Vector3.Distance (towers[i].transform.position, transform.position) <= range) {
-				towers [i].GetComponent<Tower> ().BuffDamage (damage);
+				towers [i].GetComponent<AttackSpeedIncreasable> ().IncreaseFiringRate (percentSpeedIncrease);
 			}
 		}
 	}
@@ -31,7 +31,7 @@ public class DogTower : Tower {
 		for (int i = 0; i < towers.Length; i++) {
 
 			if (Vector3.Distance (towers[i].transform.position, transform.position) <= range) {
-				towers [i].GetComponent<Tower> ().NerfDamage (damage);
+				towers [i].GetComponent<AttackSpeedIncreasable> ().DecreaseFiringRate (percentSpeedIncrease);
 			}
 		}
 	}

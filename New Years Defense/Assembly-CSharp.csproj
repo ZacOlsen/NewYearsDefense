@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Projectiles\PierceProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\Projectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\SlowingProjectile.cs" />
+     <Compile Include="Assets\Scripts\Towers\AttackSpeedIncreasable.cs" />
      <Compile Include="Assets\Scripts\Towers\DogTower.cs" />
      <Compile Include="Assets\Scripts\Towers\HorseTower.cs" />
      <Compile Include="Assets\Scripts\Towers\MouseTower.cs" />

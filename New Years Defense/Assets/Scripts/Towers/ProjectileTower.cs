@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileTower : Tower {
+public class ProjectileTower : Tower, AttackSpeedIncreasable {
 
 	[SerializeField] protected float timeBetweenShots = .3f;
 	protected float timeOfLastShot;
