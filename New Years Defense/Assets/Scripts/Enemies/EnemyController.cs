@@ -7,8 +7,10 @@ public class EnemyController : MonoBehaviour {
 	[SerializeField] private float speed = 5f;
 	protected const float errorRange = .05f;
 
-//	[SerializeField] private int damage = 1;
+	[SerializeField] private int damage = 3;
 	[SerializeField] private int health = 20;
+
+	[SerializeField] private int moneyDrop = 5;
 
 	private float slow;
 	private float timeOfSlow = 0;
@@ -17,9 +19,12 @@ public class EnemyController : MonoBehaviour {
 	private GameObject map;
 	private int currentIndex = 1;
 
+	private BaseStats baseStats;
+
 	void Start () {
 
 		map = GameObject.Find ("Map");
+		baseStats = GameObject.FindGameObjectWithTag ("Base").GetComponent<BaseStats> ();
 	}
 	
 	void FixedUpdate () {
@@ -32,6 +37,7 @@ public class EnemyController : MonoBehaviour {
 			currentIndex++;
 
 			if (currentIndex >= map.transform.childCount) {
+				baseStats.TakeDamage (damage);
 				Destroy (gameObject);
 			}
 		}
@@ -42,11 +48,12 @@ public class EnemyController : MonoBehaviour {
 		health -= damage;
 
 		if (health <= 0) {
+			baseStats.AddMoney (moneyDrop);
 			Destroy (gameObject);
 		}
 	}
 
-	public void SetSlowAndDuration (float slow, float duration){
+	public virtual void SetSlowAndDuration (float slow, float duration){
 
 		this.slow = slow;
 		slowDuration = duration;

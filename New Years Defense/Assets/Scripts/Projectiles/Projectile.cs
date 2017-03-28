@@ -25,8 +25,6 @@ public class Projectile : MonoBehaviour {
 
 		this.damage = damage;
 		this.target = target;
-
-		Debug.Log (damage);
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
