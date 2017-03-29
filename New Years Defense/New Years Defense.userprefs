@@ -1,16 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Projectiles\Projectile.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemies\EnemyController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Towers\Tower.cs" Line="33" Column="3" />
-      <File FileName="Assets\Scripts\BaseStats.cs" Line="42" Column="1" />
-      <File FileName="Assets\Scripts\Towers\DragonItem.cs" Line="17" Column="24" />
-      <File FileName="Assets\Scripts\Enemies\EnemyController.cs" Line="56" Column="16" />
+      <File FileName="Assets\Scripts\Towers\Tower.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BaseStats.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Towers\DragonItem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemies\EnemyController.cs" Line="51" Column="1" />
       <File FileName="Assets\Scripts\Projectiles\SlowingProjectile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Towers\ProjectileTower.cs" Line="9" Column="35" />
-      <File FileName="Assets\Scripts\Towers\OxTower.cs" Line="7" Column="2" />
-      <File FileName="Assets\Scripts\Towers\TigerTower.cs" Line="14" Column="3" />
-      <File FileName="Assets\Scripts\Enemies\EnemySlowImmune.cs" Line="9" Column="1" />
+      <File FileName="Assets\Scripts\Towers\ProjectileTower.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Towers\OxTower.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Towers\TigerTower.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemies\EnemySlowImmune.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Projectiles\Projectile.cs" Line="28" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
