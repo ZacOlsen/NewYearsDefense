@@ -36,7 +36,7 @@ public class ProjectileTower : Tower, AttackSpeedIncreasable {
 	protected virtual void FireProjectile () {
 
 		Projectile proj = ((GameObject) Instantiate (projectile, transform.position, 
-			Quaternion.identity)).GetComponent<Projectile> ();
+			Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2 (enemiesInRange[0].transform.position.y - transform.position.y, enemiesInRange[0].transform.position.x - transform.position.x) - 90))).GetComponent<Projectile> ();
 		proj.SetDamageAndTarget (GetDamage (), enemiesInRange [0]);
 	}
 
