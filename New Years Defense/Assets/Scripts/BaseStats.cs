@@ -32,6 +32,7 @@ public class BaseStats : MonoBehaviour {
 
 		if (this.money - money >= 0) {
 			this.money -= money;
+			UpdateStats ();
 			return true;
 		}
 

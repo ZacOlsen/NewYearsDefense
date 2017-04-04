@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class GhostTowerDragger : MonoBehaviour {
 
-	bool locked;
-	
+	[SerializeField] private GameObject tower = null;
+
 	void Update () {
 
-		if (!locked) {
-			Vector2 pos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-			transform.position = pos;
-		}
+		Vector2 pos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		transform.position = pos;
 
 		if (Input.GetMouseButtonUp (0)) {
-			locked = true;
+			Instantiate (tower, transform.position, Quaternion.identity);
+			Destroy (gameObject);
 		}
 	}
 }
