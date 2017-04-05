@@ -20,7 +20,7 @@ public class TowerSpawner : MonoBehaviour, IPointerDownHandler {
 	public void OnPointerDown (PointerEventData data) {
 
 		if (baseStats.Spend (cost)) {
-			manager.SpawnTower (towerID);
+			manager.SpawnTower (towerID).GetComponent<GhostTowerDragger> ().SetCost (cost);
 		}
 	}
 }

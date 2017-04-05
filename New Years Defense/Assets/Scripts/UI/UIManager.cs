@@ -23,10 +23,12 @@ public class UIManager : MonoBehaviour {
 		offsetX = -offsetX;
 	}
 
-	public void SpawnTower(int tower){
+	public GameObject SpawnTower(int tower){
 
 		Vector2 pos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		Instantiate (towerImages [tower], pos, Quaternion.identity);
+		GameObject ghostTower = ((GameObject) Instantiate (towerImages [tower], pos, Quaternion.identity));
 		ToggleShown ();
+
+		return ghostTower;
 	}
 }

@@ -8,11 +8,13 @@ public class BaseStats : MonoBehaviour {
 	[SerializeField] private int health;
 	[SerializeField] private int money;
 
+	private EnemyManager enemyManager;
 	private Text statDisplay;
 
 	void Start () {
 		
 		statDisplay = GameObject.Find ("Stat Display").GetComponent<Text> ();
+		enemyManager = GameObject.Find ("Map").GetComponent<EnemyManager> ();
 		UpdateStats ();
 	}
 
@@ -40,6 +42,6 @@ public class BaseStats : MonoBehaviour {
 	}
 
 	private void UpdateStats () {
-		statDisplay.text = "Health: " + health + "\nMoney: " + money;
+		statDisplay.text = "Health: " + health + "\nMoney: " + money + "\nWave: " + enemyManager.GetWave();
 	}
 }
