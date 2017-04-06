@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\BaseStats.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Towers\TigerTower.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyManager.cs" Line="55" Column="5" />
-      <File FileName="Assets\Scripts\UI\BaseStats.cs" Line="11" Column="36" />
+      <File FileName="Assets\Scripts\EnemyManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\BaseStats.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Towers\ProjectileTower.cs" Line="39" Column="188" />
+      <File FileName="Assets\Scripts\Towers\TigerTower.cs" Line="13" Column="188" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
