@@ -44,8 +44,9 @@ public class PierceExplodingProjectile : PierceProjectile {
 		if (other.CompareTag ("Enemy")) {
 
 			other.GetComponent<EnemyController> ().TakeDamage (damage);
+            AudioSource.PlayClipAtPoint(sound, transform.position);
 
-			if (currentPierces < numOfPierces) {
+            if (currentPierces < numOfPierces) {
 				currentPierces++;
 			} else {
 				Explode ();

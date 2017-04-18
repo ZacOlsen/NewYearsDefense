@@ -42,7 +42,8 @@ public class ExplodingProjectile : Projectile {
 			}
 		}
 
-		Destroy (gameObject);
+        AudioSource.PlayClipAtPoint(sound, transform.position);
+        Destroy(gameObject);
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {

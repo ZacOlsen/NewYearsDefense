@@ -9,7 +9,14 @@ public class Projectile : MonoBehaviour {
 
 	protected int damage;
 	protected GameObject target;
-	
+
+    protected AudioSource audioPlayer;
+    [SerializeField] protected AudioClip sound;
+
+    void Start () {
+        audioPlayer = GetComponent<AudioSource> ();
+    }
+
 	void FixedUpdate () {
 
 		if (target == null) {
@@ -32,7 +39,8 @@ public class Projectile : MonoBehaviour {
 		if (other.gameObject == target) {
 
 			target.GetComponent<EnemyController> ().TakeDamage (damage);
-			Destroy (gameObject);
+            AudioSource.PlayClipAtPoint(sound, transform.position);
+            Destroy(gameObject);
 		}
 	}
 }

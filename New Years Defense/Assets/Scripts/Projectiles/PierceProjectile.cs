@@ -48,8 +48,9 @@ public class PierceProjectile : Projectile {
 
 			other.GetComponent<EnemyController> ().TakeDamage (damage);
 			other.GetComponent<EnemyController> ().SetSlowAndDuration (1f - slowDebuff, duration);
+            AudioSource.PlayClipAtPoint(sound, transform.position);
 
-			if (currentPierces < numOfPierces) {
+            if (currentPierces < numOfPierces) {
 				currentPierces++;
 			} else {
 				Destroy (gameObject);

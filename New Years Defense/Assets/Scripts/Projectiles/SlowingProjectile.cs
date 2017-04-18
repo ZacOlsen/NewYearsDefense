@@ -18,7 +18,8 @@ public class SlowingProjectile : Projectile {
 
 			target.GetComponent<EnemyController> ().TakeDamage (damage);
 			target.GetComponent<EnemyController> ().SetSlowAndDuration (1f - slowDebuff, duration);
-			Destroy (gameObject);
+            AudioSource.PlayClipAtPoint(sound, transform.position);
+            Destroy(gameObject);
 		}
 	}
 }
