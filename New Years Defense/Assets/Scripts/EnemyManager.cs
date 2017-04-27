@@ -36,7 +36,7 @@ public class EnemyManager : MonoBehaviour {
 
 		spawnPoint = GameObject.Find ("Waypoint 1").transform;
 		formulaWaves = new int [TYPES_OF_ENEMIES];
-		StartNextWave ();
+		//StartNextWave ();
 	}
 		
 	void FixedUpdate () {
@@ -78,7 +78,7 @@ public class EnemyManager : MonoBehaviour {
 			if (enemy == -1) {
 				enemy = (wave - 1) * TYPES_OF_ENEMIES + TYPES_OF_ENEMIES;	//this wave is used for when it is before,
 				waveStarted = false;										//enmeis gets reset in calculate
-				StartNextWave ();
+				//StartNextWave ();
 				return;
 			}
 		}
@@ -147,5 +147,9 @@ public class EnemyManager : MonoBehaviour {
 
 	public int GetWave () {
 		return wave;
+	}
+	public bool GetWaveStarted()
+	{
+		return waveStarted;
 	}
 }
