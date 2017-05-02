@@ -18,13 +18,25 @@ public class UIManager : MonoBehaviour {
 	private bool isNext = true;
 	private bool isPaused = false;
 
+	private Image nextButton;
+
 	void Start () {
 
 		em = GameObject.Find ("Map").GetComponent<EnemyManager> ();
 
+		nextButton = GameObject.Find ("NextButton").GetComponent<Image> ();
 
 		offsetX = ((RectTransform)transform).anchoredPosition.x;
 		ToggleShown ();
+	}
+
+	void FixedUpdate () {
+		
+		if (!em.GetWaveStarted() && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
+			nextButton.sprite = sprNext;
+			isNext = true;
+			isPaused = false;
+		}
 	}
 
 	public void ToggleShown () {
@@ -43,41 +55,26 @@ public class UIManager : MonoBehaviour {
 		return ghostTower;
 	}
 
-	public void NextButton()
-	{
-		if (isNext) 
-		{
+	public void NextButton () {
+		if (isNext) {
 			em.StartNextWave ();
-			GameObject.Find ("NextButton").GetComponent<Image> ().sprite = sprPause;
+			nextButton.sprite = sprPause;
 			isNext = false;
 
-		}
-		else 
-		{
-			if (isPaused) 
-			{
+		} else {
+		
+			if (isPaused) {
 				//Resume function
 				Time.timeScale = 1;
-				GameObject.Find ("NextButton").GetComponent<Image> ().sprite = sprPause;
+				nextButton.sprite = sprPause;
 				isPaused = false;
-			} 
-			else
-			{
+			
+			} else {
 				//Pause function
 				Time.timeScale = 0;
-				GameObject.Find ("NextButton").GetComponent<Image> ().sprite = sprResume;
+				nextButton.sprite = sprResume;
 				isPaused = true;
 			}
 		}
 	}
-	void Update()
-	{
-		if (!em.GetWaveStarted() && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) 
-		{
-			GameObject.Find ("NextButton").GetComponent<Image> ().sprite = sprNext;
-			isNext = true;
-			isPaused = false;
-		}
-	}
-
 }

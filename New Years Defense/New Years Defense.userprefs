@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\UIManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Projectiles\PierceExplodingProjectile.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyManager.cs" Line="151" Column="30" />
-      <File FileName="Assets\Scripts\UI\UIManager.cs" Line="67" Column="24" />
+      <File FileName="Assets\Scripts\EnemyManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\UIManager.cs" Line="79" Column="3" />
+      <File FileName="Assets\Scripts\UI\TowerSpawner.cs" Line="13" Column="10" />
+      <File FileName="Assets\Scripts\Projectiles\PierceExplodingProjectile.cs" Line="7" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PierceExplodingProjectile : PierceProjectile {
 
-	private float range = 3f;
-	private int explosionDamage = 5;
+	[SerializeField] private float range = 3f;
+	[SerializeField] private int explosionDamage = 5;
 
 	void FixedUpdate () {
 
