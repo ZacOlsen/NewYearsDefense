@@ -36,7 +36,14 @@ public class PierceExplodingProjectile : PierceProjectile {
 			}
 		}
 
-		Destroy (gameObject);
+		audioPlayer.Stop ();
+		AudioSource.PlayClipAtPoint(explosion, transform.position);
+
+		anim.enabled = true;
+		anim.speed = explosionAnimSpeed;
+
+		Destroy (gameObject, anim.GetCurrentAnimatorStateInfo(0).length / explosionAnimSpeed);
+		Destroy (this);
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
@@ -44,7 +51,7 @@ public class PierceExplodingProjectile : PierceProjectile {
 		if (other.CompareTag ("Enemy")) {
 
 			other.GetComponent<EnemyController> ().TakeDamage (damage);
-            AudioSource.PlayClipAtPoint(sound, transform.position);
+			AudioSource.PlayClipAtPoint(explosion, transform.position);
 
             if (currentPierces < numOfPierces) {
 				currentPierces++;

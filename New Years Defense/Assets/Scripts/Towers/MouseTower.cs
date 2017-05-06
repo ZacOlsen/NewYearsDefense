@@ -12,8 +12,13 @@ public class MouseTower : ProjectileTower {
 
 	protected override void FireProjectile () {
 
+		transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * 
+			Mathf.Atan2 (enemiesInRange[0].transform.position.y	- transform.position.y, 
+			enemiesInRange[0].transform.position.x - transform.position.x) - 90);
+
 		PierceExplodingProjectile proj = ((GameObject) Instantiate (projectile, transform.position, 
-			Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2 (enemiesInRange[0].transform.position.y - transform.position.y, enemiesInRange[0].transform.position.x - transform.position.x) - 90))).GetComponent<PierceExplodingProjectile> ();
+			Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2 (enemiesInRange[0].transform.position.y - transform.position.y,
+			enemiesInRange[0].transform.position.x - transform.position.x) - 90))).GetComponent<PierceExplodingProjectile> ();
 		
 		proj.SetDistanceAndPierces (maxDistance, numOfPierces);
 		proj.SetDamageAndTarget (GetDamage (), enemiesInRange [0]);

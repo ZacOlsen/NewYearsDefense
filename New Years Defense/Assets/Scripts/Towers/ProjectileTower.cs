@@ -35,8 +35,14 @@ public class ProjectileTower : Tower, AttackSpeedIncreasable {
 
 	protected virtual void FireProjectile () {
 
+		transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * 
+			Mathf.Atan2 (enemiesInRange[0].transform.position.y	- transform.position.y, 
+			enemiesInRange[0].transform.position.x - transform.position.x) - 90);
+
 		Projectile proj = ((GameObject) Instantiate (projectile, transform.position, 
-			Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2 (enemiesInRange[0].transform.position.y - transform.position.y, enemiesInRange[0].transform.position.x - transform.position.x) - 90))).GetComponent<Projectile> ();
+			Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2 (enemiesInRange[0].transform.position.y - transform.position.y, 
+			enemiesInRange[0].transform.position.x - transform.position.x) - 90))).GetComponent<Projectile> ();
+
 		proj.SetDamageAndTarget (GetDamage (), enemiesInRange [0]);
 	}
 

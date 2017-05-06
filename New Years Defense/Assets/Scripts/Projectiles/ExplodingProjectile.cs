@@ -24,6 +24,10 @@ public class ExplodingProjectile : Projectile {
 			return;
 		}
 
+		transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * 
+			Mathf.Atan2 (target.transform.position.y - transform.position.y, 
+			target.transform.position.x - transform.position.x) - 90);
+
 		transform.position = Vector3.Lerp (transform.position, targetLoc, Time.fixedDeltaTime * speed / distance);
 	}
 
@@ -42,8 +46,14 @@ public class ExplodingProjectile : Projectile {
 			}
 		}
 
-        AudioSource.PlayClipAtPoint(sound, transform.position);
-        Destroy(gameObject);
+		audioPlayer.Stop ();
+		AudioSource.PlayClipAtPoint(explosion, transform.position);
+
+		anim.enabled = true;
+		anim.speed = explosionAnimSpeed;
+
+		Destroy (gameObject, anim.GetCurrentAnimatorStateInfo(0).length / explosionAnimSpeed);
+		Destroy (this);
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {

@@ -12,6 +12,10 @@ public class EnemyController : MonoBehaviour {
 
 	[SerializeField] private int moneyDrop = 5;
 
+	private AudioSource audioPlayer;
+	[SerializeField] private AudioClip puddleStep = null;
+	[SerializeField] private AudioClip grunt = null;
+
 	private float slow;
 	private float timeOfSlow = 0;
 	private float slowDuration;
@@ -25,6 +29,17 @@ public class EnemyController : MonoBehaviour {
 
 		map = GameObject.Find ("Map");
 		baseStats = GameObject.FindGameObjectWithTag ("Base").GetComponent<BaseStats> ();
+
+		transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * 
+			Mathf.Atan2 (map.transform.GetChild (currentIndex).transform.position.y	- transform.position.y, 
+			map.transform.GetChild (currentIndex).transform.position.x - transform.position.x) - 90);
+
+		audioPlayer = GetComponent<AudioSource> ();
+		audioPlayer.loop = true;
+		audioPlayer.clip = grunt;
+		audioPlayer.Play ();
+
+		StartCoroutine ("LoopDelayedAudio");
 	}
 	
 	void FixedUpdate () {
@@ -32,14 +47,27 @@ public class EnemyController : MonoBehaviour {
 		transform.position = Vector3.Lerp (transform.position, map.transform.GetChild (currentIndex).transform.position, 
 			Time.fixedDeltaTime * (Time.time - timeOfSlow > slowDuration ? speed : speed * slow) / 
 			Vector3.Distance (transform.position, map.transform.GetChild (currentIndex).transform.position));
-	
+
 		if (Vector3.Distance (transform.position, map.transform.GetChild (currentIndex).transform.position) < errorRange) {
 			currentIndex++;
 
 			if (currentIndex >= map.transform.childCount) {
 				baseStats.TakeDamage (damage);
 				Destroy (gameObject);
+			} else {
+				
+				transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * 
+					Mathf.Atan2 (map.transform.GetChild (currentIndex).transform.position.y	- transform.position.y, 
+					map.transform.GetChild (currentIndex).transform.position.x - transform.position.x) - 90);
 			}
+		}
+	}
+
+	IEnumerator LoopDelayedAudio () {
+
+		while (this != null) {
+			audioPlayer.PlayOneShot (puddleStep);
+			yield return new WaitForSeconds (.66f);
 		}
 	}
 

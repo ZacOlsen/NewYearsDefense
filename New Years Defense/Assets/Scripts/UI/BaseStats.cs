@@ -8,6 +8,9 @@ public class BaseStats : MonoBehaviour {
 	[SerializeField] private int health;
 	[SerializeField] private int money;
 
+	[SerializeField] private AudioClip backgroundMusic = null;
+	private AudioSource audioPlayer;
+
 	private EnemyManager enemyManager;
 	private Text statDisplay;
 
@@ -16,6 +19,11 @@ public class BaseStats : MonoBehaviour {
 		statDisplay = GameObject.Find ("Stat Display").GetComponent<Text> ();
 		enemyManager = GameObject.Find ("Map").GetComponent<EnemyManager> ();
 		UpdateStats ();
+
+		audioPlayer = GetComponent<AudioSource> ();
+		audioPlayer.clip = backgroundMusic;
+		audioPlayer.loop = true;
+		audioPlayer.Play ();
 	}
 
 	public void TakeDamage (int damage) {
