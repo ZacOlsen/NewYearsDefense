@@ -107,6 +107,8 @@ public class EnemyManager : MonoBehaviour {
 
 		enemy %= TYPES_OF_ENEMIES;
 
+		Debug.Log (enemy);
+
 		switch (enemy) {
 
 		case 0:
