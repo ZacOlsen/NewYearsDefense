@@ -50,6 +50,6 @@ public class BaseStats : MonoBehaviour {
 	}
 
 	private void UpdateStats () {
-		statDisplay.text = "Health: " + health + "\nMoney: " + money + "\nWave: " + enemyManager.GetWave();
+		statDisplay.text = health + "\n" + money + "\n" + enemyManager.GetWave();
 	}
 }

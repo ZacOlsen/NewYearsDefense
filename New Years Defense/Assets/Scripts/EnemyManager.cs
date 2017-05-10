@@ -84,13 +84,12 @@ public class EnemyManager : MonoBehaviour {
 		}
 
 		enemies [enemy]--;
+		SpawnEnemey (enemy);
 
 		enemy++;
 		if (enemy == (waveShift - 1) * TYPES_OF_ENEMIES + TYPES_OF_ENEMIES) {
 			enemy -= TYPES_OF_ENEMIES;
 		}
-
-		SpawnEnemey (enemy);
 	}
 
 	void CalculateWaveEnemies () {
@@ -107,7 +106,7 @@ public class EnemyManager : MonoBehaviour {
 
 		enemy %= TYPES_OF_ENEMIES;
 
-		Debug.Log (enemy);
+//		Debug.Log (enemy);
 
 		switch (enemy) {
 

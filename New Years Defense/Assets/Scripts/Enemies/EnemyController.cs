@@ -8,9 +8,9 @@ public class EnemyController : MonoBehaviour {
 	protected const float errorRange = .05f;
 
 	[SerializeField] private int damage = 3;
-	[SerializeField] private int health = 20;
+	[SerializeField] protected int health = 20;
 
-	[SerializeField] private int moneyDrop = 5;
+	[SerializeField] protected int moneyDrop = 5;
 
 	private AudioSource audioPlayer;
 	[SerializeField] private AudioClip puddleStep = null;
@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour {
 	private GameObject map;
 	private int currentIndex = 1;
 
-	private BaseStats baseStats;
+	protected BaseStats baseStats;
 
 	void Start () {
 

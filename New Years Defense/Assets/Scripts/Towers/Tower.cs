@@ -32,6 +32,10 @@ public abstract class Tower : MonoBehaviour {
 		damage -= nerf;
 	}
 
+	public float GetRange(){
+		return range;
+	}
+
 	void OnTriggerEnter2D (Collider2D other) {
 
 		if (other.CompareTag ("Enemy")) {

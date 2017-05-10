@@ -18,6 +18,10 @@ public class UIManager : MonoBehaviour {
 	private bool isNext = true;
 	private bool isPaused = false;
 
+	[SerializeField] private Sprite pullOut = null;
+	[SerializeField] private Sprite pushIn = null;
+	private RawImage toggle;
+
 	private Image nextButton;
 
 	void Start () {
@@ -25,6 +29,8 @@ public class UIManager : MonoBehaviour {
 		em = GameObject.Find ("Map").GetComponent<EnemyManager> ();
 
 		nextButton = GameObject.Find ("NextButton").GetComponent<Image> ();
+
+		toggle = GameObject.Find ("Toggle").GetComponent<RawImage> ();
 
 		offsetX = ((RectTransform)transform).anchoredPosition.x;
 		ToggleShown ();
@@ -42,6 +48,8 @@ public class UIManager : MonoBehaviour {
 	public void ToggleShown () {
 
 		shown = !shown;
+		toggle.texture = shown ? pushIn.texture : pullOut.texture;
+
 		((RectTransform) transform).anchoredPosition = new Vector2 (-offsetX, ((RectTransform) transform).anchoredPosition.y);
 		offsetX = -offsetX;
 	}

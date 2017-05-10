@@ -26,9 +26,14 @@ public class TowerDeleter : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		if (selected && Input.GetMouseButtonUp (0)) {
 
 			GameObject tower = GameObject.FindGameObjectWithTag ("Ghost");
-			baseStats.AddMoney (tower.GetComponent<GhostTowerDragger> ().GetCost());
 
-			Destroy (tower);
+			try {
+				baseStats.AddMoney (tower.GetComponent<GhostTowerDragger> ().GetCost());
+				Destroy (tower);
+			
+			} catch {
+
+			}
 		}
 	}
 

@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyLowDamageImmune.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemySlowImmune.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ExplodingProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\PierceExplodingProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\PierceProjectile.cs" />
