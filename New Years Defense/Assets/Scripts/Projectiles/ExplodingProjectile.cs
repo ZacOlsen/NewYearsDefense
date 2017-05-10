@@ -13,6 +13,9 @@ public class ExplodingProjectile : Projectile {
 		
 		GetComponent<CircleCollider2D> ().radius = range;
 		enemies = new List<EnemyController> ();
+
+		audioPlayer = GetComponent<AudioSource> ();
+		anim = GetComponent<Animator> ();
 	}
 
 	void FixedUpdate () {
@@ -25,8 +28,8 @@ public class ExplodingProjectile : Projectile {
 		}
 
 		transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * 
-			Mathf.Atan2 (target.transform.position.y - transform.position.y, 
-			target.transform.position.x - transform.position.x) - 90);
+			Mathf.Atan2 (targetLoc.y - transform.position.y, 
+				targetLoc.x - transform.position.x) - 90);
 
 		transform.position = Vector3.Lerp (transform.position, targetLoc, Time.fixedDeltaTime * speed / distance);
 	}
