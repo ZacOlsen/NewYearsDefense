@@ -9,7 +9,7 @@ public class EnemyLowDamageImmune : EnemyController {
 	public new void TakeDamage (int damage) {
 
 		if(damage > damageImmunity){
-			base.TakeDamage (damage);
+			base.TakeDamage (damage - 2);
 		}
 	}
 }

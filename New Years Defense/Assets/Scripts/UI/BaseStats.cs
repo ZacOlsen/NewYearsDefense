@@ -30,6 +30,10 @@ public class BaseStats : MonoBehaviour {
 
 		health -= damage;
 		UpdateStats ();
+
+		if (health <= 0) {
+			GameObject.Find ("UI").GetComponent<UIManager> ().Lose ();
+		}
 	}
 
 	public void AddMoney (int money) {

@@ -149,8 +149,8 @@ public class EnemyManager : MonoBehaviour {
 	public int GetWave () {
 		return wave;
 	}
-	public bool GetWaveStarted()
-	{
+
+	public bool GetWaveStarted () {
 		return waveStarted;
 	}
 }

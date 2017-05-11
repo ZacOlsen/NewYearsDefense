@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
 
@@ -23,6 +24,8 @@ public class UIManager : MonoBehaviour {
 	private RawImage toggle;
 
 	private Image nextButton;
+
+	[SerializeField] private GameObject lose;
 
 	void Start () {
 
@@ -84,5 +87,20 @@ public class UIManager : MonoBehaviour {
 				isPaused = true;
 			}
 		}
+	}
+
+	public void Lose () {
+		
+		lose.SetActive (true);
+		lose.transform.FindChild ("Score").GetComponent<Text> ().text = "" +
+			GameObject.Find ("Map").GetComponent<EnemyManager> ().GetWave ();
+	}
+
+	public void Replay () {
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+	}
+
+	public void Quit () {
+		Application.Quit ();
 	}
 }

@@ -12,7 +12,11 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void Credits () {
+		SceneManager.LoadScene ("Credits");
+	}
 
+	public void MainMenu () {
+		SceneManager.LoadScene ("Start Menu");
 	}
 
 	public void Quit () {
